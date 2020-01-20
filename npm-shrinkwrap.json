@@ -13526,9 +13526,8 @@
       }
     },
     "zigbee-herdsman-converters": {
-      "version": "12.0.0",
-      "resolved": "https://registry.npmjs.org/zigbee-herdsman-converters/-/zigbee-herdsman-converters-12.0.0.tgz",
-      "integrity": "sha512-BtW0xQEIq3g9ExGYjLmU5Nxz4LMphSwOaTTaZK/ZKnzs/gWsWEGYIkSMBZ3Lt0ijUCFV6Vl4V3lu+7bciyw6xA==",
+      "version": "https://github.com/Lupino/zigbee-herdsman-converters/tarball/giveyun",
+      "integrity": "sha512-u06T/P9lbQzpyMqFAqGabwQ9unGo9e/f0peSvx2VWAg/4H6IDTZ/lKrwRwPCZ2bWp578FD2S5Jkk9joOSAkRzw==",
       "dependencies": {
         "@babel/code-frame": {
           "version": "7.5.5",
