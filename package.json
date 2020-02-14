@@ -1,6 +1,6 @@
 {
   "name": "zigbee2mqtt",
-  "version": "1.9.0-dev",
+  "version": "1.10.0-dev",
   "description": "Zigbee to MQTT bridge using Zigbee-herdsman",
   "main": "index.js",
   "repository": {
@@ -45,7 +45,7 @@
     "rimraf": "*",
     "semver": "*",
     "winston": "*",
-    "zigbee-herdsman": "0.12.34",
+    "zigbee-herdsman": "0.12.48",
     "zigbee-herdsman-converters": "https://github.com/Lupino/zigbee-herdsman-converters/tarball/giveyun"
   },
   "devDependencies": {

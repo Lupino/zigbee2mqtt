@@ -12,6 +12,7 @@ class Group {
 }
 
 const clusters = {
+    'genBasic': 0,
     'genScenes': 5,
     'genOnOff': 6,
     'genLevelCtrl': 8,
@@ -34,7 +35,7 @@ class Endpoint {
         this.configureReporting = jest.fn();
         this.binds = binds;
         this.supportsInputCluster = (cluster) => {
-            assert(clusters[cluster], `Undefined '${cluster}'`);
+            assert(clusters[cluster] !== undefined, `Undefined '${cluster}'`);
             return this.inputClusters.includes(clusters[cluster]);
         }
 
@@ -119,7 +120,7 @@ const devices = {
     'E1743': new Device('Router', '0x0017880104e45540', 6540,4476, [new Endpoint(1, [0], [])], true, "Mains (single phase)", 'TRADFRI on/off switch'),
     'QBKG04LM': new Device('Router', '0x0017880104e45541', 6549,4151, [new Endpoint(1, [0], []), new Endpoint(2, [0, 6], [])], true, "Mains (single phase)", 'lumi.ctrl_neutral1'),
     'QBKG03LM':new Device('Router', '0x0017880104e45542', 6540,4151, [new Endpoint(1, [0], [], '0x0017880104e45542'), new Endpoint(2, [0, 6], [], '0x0017880104e45542'), new Endpoint(3, [0, 6], [], '0x0017880104e45542')], true, "Mains (single phase)", 'lumi.ctrl_neutral2'),
-    'GLEDOPTO1112': new Device('Router', '0x0017880104e45543', 6540,4151, [new Endpoint(11, [0], []), new Endpoint(13, [0], [])], true, "Mains (single phase)", 'GL-C-008'),
+    'GLEDOPTO1112': new Device('Router', '0x0017880104e45543', 6540, 4151, [new Endpoint(11, [0], [], '0x0017880104e45543'), new Endpoint(13, [0], [], '0x0017880104e45543')], true, "Mains (single phase)", 'GL-C-008'),
     'GLEDOPTO111213': new Device('Router', '0x0017880104e45544', 6540,4151, [new Endpoint(11, [0], []), new Endpoint(13, [0], []), new Endpoint(12, [0], [])], true, "Mains (single phase)", 'GL-C-008'),
     'HGZB04D': new Device('Router', '0x0017880104e45545', 6540,4151, [new Endpoint(1, [0], [])], true, "Mains (single phase)", 'FB56+ZSC05HG1.0'),
     'ZNCLDJ11LM': new Device('Router', '0x0017880104e45547', 6540,4151, [new Endpoint(1, [0], []), new Endpoint(2, [0], [])], true, "Mains (single phase)", 'lumi.curtain'),
@@ -138,7 +139,8 @@ const devices = {
     'ZNLDP12LM': new Device('Router', '0x90fd9ffffe4b64ax', 33901, 4476, [new Endpoint(1, [0,4,3,5,10,258,13,19,6,1,1030,8,768,1027,1029,1026], [0,3,4,6,8,5], '0x90fd9ffffe4b64ax')], true, "Mains (single phase)", "lumi.light.aqcn02"),
     'SP600_OLD': new Device('Router', '0x90fd9ffffe4b64aa', 33901, 4476, [new Endpoint(1, [0,4,3,5,10,258,13,19,6,1,1030,8,768,1027,1029,1026], [0,3,4,6,8,5], '0x90fd9ffffe4b64aa', [], {seMetering: {"multiplier":1,"divisor":10000}})], true, "Mains (single phase)", "SP600", false, 'Salus', '20160120'),
     'SP600_NEW': new Device('Router', '0x90fd9ffffe4b64ab', 33901, 4476, [new Endpoint(1, [0,4,3,5,10,258,13,19,6,1,1030,8,768,1027,1029,1026], [0,3,4,6,8,5], '0x90fd9ffffe4b64aa', [], {seMetering: {"multiplier":1,"divisor":10000}})], true, "Mains (single phase)", "SP600", false, 'Salus', '20170220'),
-
+    'MKS-CM-W5': new Device('Router', '0x90fd9ffffe4b64ac', 33901, 4476, [new Endpoint(1, [0,4,3,5,10,258,13,19,6,1,1030,8,768,1027,1029,1026], [0,3,4,6,8,5], '0x90fd9ffffe4b64aa', [], {})], true, "Mains (single phase)", "qnazj70", false),
+    'GL-S-007ZS': new Device('Router', '0x0017880104e45526', 6540,4151, [new Endpoint(1, [0], [], '0x0017880104e45526')], true, "Mains (single phase)", 'GL-S-007ZS'),
 }
 
 const groups = {
