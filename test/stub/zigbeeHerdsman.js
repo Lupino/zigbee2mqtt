@@ -7,12 +7,14 @@ class Group {
         this.command = jest.fn();
         this.meta = {};
         this.members = members;
+        this.removeFromDatabase = jest.fn();
         this.hasMember = (endpoint) => this.members.includes(endpoint);
     }
 }
 
 const clusters = {
     'genBasic': 0,
+    'genOta': 25,
     'genScenes': 5,
     'genOnOff': 6,
     'genLevelCtrl': 8,
@@ -28,6 +30,7 @@ class Endpoint {
         this.inputClusters = inputClusters;
         this.outputClusters = outputClusters;
         this.command = jest.fn();
+        this.commandResponse = jest.fn();
         this.read = jest.fn();
         this.write = jest.fn();
         this.bind = jest.fn();
