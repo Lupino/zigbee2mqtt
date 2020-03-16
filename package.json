@@ -45,7 +45,7 @@
     "rimraf": "*",
     "semver": "*",
     "winston": "*",
-    "zigbee-herdsman": "0.12.58",
+    "zigbee-herdsman": "0.12.63",
     "zigbee-herdsman-converters": "https://github.com/Lupino/zigbee-herdsman-converters.git#giveyun"
   },
   "devDependencies": {
