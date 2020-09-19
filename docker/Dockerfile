@@ -10,8 +10,9 @@ FROM base as dependencies
 
 COPY npm-shrinkwrap.json ./
 
-RUN apk add --no-cache --virtual .buildtools make gcc g++ python linux-headers git && \
-    npm ci --production && \
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories && \
+    apk add --no-cache --virtual .buildtools make gcc g++ python linux-headers git && \
+    npm ci --production --registry=http://registry.npm.taobao.org && \
     apk del .buildtools
 
 # Release
@@ -30,4 +31,4 @@ ARG COMMIT
 RUN echo "{\"hash\": \"$COMMIT\"}" > .hash.json
 
 ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["npm", "start"]
+CMD ["node", "index.js"]
