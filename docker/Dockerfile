@@ -1,7 +1,8 @@
 FROM node:12-alpine as base
 
 WORKDIR /app
-RUN apk add --no-cache tzdata eudev
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories && \
+    apk add --no-cache tzdata eudev
 
 COPY package.json ./
 
