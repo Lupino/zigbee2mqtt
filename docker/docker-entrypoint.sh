@@ -10,7 +10,7 @@ cat > ${CONFIG} <<EOF
 homeassistant: false
 permit_join: false
 mqtt:
-  base_topic: zigbee2mqtt
+  base_topic: /zigbee2mqtt
   server: '${MQTT_HOST}'
   user: ${MQTT_USER}
   password: ${MQTT_PASS}
