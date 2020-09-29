@@ -9,11 +9,9 @@ COPY package.json ./
 # Dependencies
 FROM base as dependencies
 
-COPY npm-shrinkwrap.json ./
-
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories && \
     apk add --no-cache --virtual .buildtools make gcc g++ python linux-headers git && \
-    npm ci --production --registry=http://registry.npm.taobao.org && \
+    npm install --production --registry=http://registry.npm.taobao.org && \
     apk del .buildtools
 
 # Release
