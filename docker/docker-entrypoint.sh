@@ -24,13 +24,6 @@ advanced:
 EOF
 }
 
-update_serial_port() {
-    sed -i "s@server:.*@server: '${MQTT_HOST}'@" $1
-    sed -i "s@user:.*@user: ${MQTT_USER}@" $1
-    sed -i "s@password:.*@password: ${MQTT_PASS}@" $1
-    sed -i "s@port:.*@port: '${GIVELINK_PORT}'@" $1
-}
-
 if [ ! -z "$ZIGBEE2MQTT_DATA" ]; then
     DATA="$ZIGBEE2MQTT_DATA"
 else
@@ -39,10 +32,7 @@ fi
 
 echo "Using '$DATA' as data directory"
 
-if [ -f "$DATA/configuration.yaml" ]; then
-    echo "Update configuration file..."
-    update_serial_port "$DATA/configuration.yaml"
-else
+if [ ! -f "$DATA/configuration.yaml" ]; then
     echo "Creating configuration file..."
     setup "$DATA/configuration.yaml"
 fi
